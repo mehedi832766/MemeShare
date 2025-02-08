@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Logo, LogoutBtn } from '../index';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 function Header({userId}) {
+  const [ico, setIco] = useState("menu-outline")
+  const [value, setValue] = useState(-100)
+
+  const onToggleMenu = () => {
+    ico === 'menu-outline' ? setIco("close-outline") : setIco('menu-outline')
+    value === -100 ? setValue(6) : setValue(-100)
+    
+}
+
+
   const authStatus = useSelector((state) => state.auth.status);
-  // const userId = useSelector((state) => state.auth.userData.$id);
+  // const userId = useSelector((state) => state.auth.userId);
   const navigate = useNavigate();
 
   const navItems = [
@@ -41,25 +51,30 @@ function Header({userId}) {
       active: authStatus,
     },
   ];
+
+
   return (
-    <div className='py-3 shadow bg-yellow-500'>
-      <Container>
-        <nav className='flex'>
-          <div className='mr-4'>
+<>
+
+    <nav className="flex justify-between items-center bg-yellow-600 w-full  mx-auto">
+    <div className='mr-4'>
             <Link to='/'>
             <Logo/>
             </Link>
           </div>
-          <div className='mr-4'>
-            <Link to='/'>
-            <h1 className='font-bold'>MemeHub</h1>
-            </Link>
-          </div>
-          <ul className='flex ml-auto'>
+    <div
+        className={`nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh]  md:w-auto  w-full flex items-center px-5 bg-yellow-600 top-[${value}%]`}>
+        
+        <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 '>
             {navItems.map((item)=>
             item.active ? (<li key={item.name}>
               <button
-              onClick={()=>navigate(item.slug)}
+              onClick={()=>{
+                setValue(-100)
+                setIco('menu-outline')
+                navigate(item.slug)
+
+              }}
               className={ 'inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full '}
               >{item.name}</button>
             </li>): null) }
@@ -69,9 +84,15 @@ function Header({userId}) {
               </li>
             )}
           </ul>
-        </nav>
-      </Container>
     </div>
+    <div className="flex items-center gap-6 md:hidden">
+        <ion-icon onClick={onToggleMenu} name={ico} className="text-3xl cursor-pointer "></ion-icon>
+    </div>
+    </nav>
+ 
+    </>
+
+     
   );
 }
 
