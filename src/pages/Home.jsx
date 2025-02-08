@@ -58,7 +58,6 @@ function Home() {
                         
                         }
                 </div>
-                <div>{console.log("return")}</div>
             </Container>
         </div>)
     }

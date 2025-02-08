@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Header({userId}) {
   const [ico, setIco] = useState("menu-outline")
-  const [value, setValue] = useState(-100)
+  const [value, setValue] = useState("top-[-100%]")
 
   const onToggleMenu = () => {
     ico === 'menu-outline' ? setIco("close-outline") : setIco('menu-outline')
-    value === -100 ? setValue(6) : setValue(-100)
+    value === "top-[-100%]" ? setValue("top-[6%]") : setValue("top-[-100%]")
     
 }
 
@@ -63,14 +63,14 @@ function Header({userId}) {
             </Link>
           </div>
     <div
-        className={`nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh]  md:w-auto  w-full flex items-center px-5 bg-yellow-600 top-[${value}%]`}>
+        className={`nav-links duration-501 md:static absolute md:min-h-fit min-h-[60vh]  md:w-auto  w-full flex items-center px-5 bg-yellow-600 ${value}`}>
         
         <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 '>
             {navItems.map((item)=>
             item.active ? (<li key={item.name}>
               <button
               onClick={()=>{
-                setValue(-100)
+                setValue("top-[-100%]")
                 setIco('menu-outline')
                 navigate(item.slug)
 

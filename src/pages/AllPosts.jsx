@@ -42,6 +42,7 @@ function AllPosts() {
         
             ))}
         </div>
+       
     </Container>
     </div>
   )
