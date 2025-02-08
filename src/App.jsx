@@ -34,7 +34,7 @@ function App() {
       </div >
 
      
-        <div className='flex items-center justify-center bg-orange-500 grow'> 
+        <div className='flex items-center justify-center bg-yellow-500 opacity-70 grow'> 
           <main >
             {<Outlet/>}
           </main>

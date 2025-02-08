@@ -35,18 +35,13 @@ function Login() {
         <div
             className='flex items-center justify-center w-full'
         >
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
-                <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
-                    </span>
-                </div>
-                <h2 className="text-center text-2xl font-bold leading-tight">Login to your account</h2>
-                <p className="mt-2 text-center text-base text-black/60">
+            <div className={`mx-auto w-full max-w-lg bg-gray-100/20 rounded-xl p-10 border border-black/10`}>
+                <h2 className="text-center text-2xl font-bold leading-tight text-white">Login to your account</h2>
+                <p className="mt-2 text-center text-base text-white/70 text-">
                     Don't have any account?
                     <Link
                         to="/signup"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                        className="font-bold text-primary transition-all duration-200 hover:underline"
                     >Sign Up
                     </Link>
                 </p>
@@ -54,7 +49,7 @@ function Login() {
                 <form onSubmit={handleSubmit(login)} className='mt-8'>
                     <div className='space-y-5'>
                         <Input
-                            label="Email: "
+                            label="Email"
                             placeholder="Enter your email"
                             type="email"
                             {...register("email", {
@@ -66,7 +61,7 @@ function Login() {
                             })}
                         />
                         <Input
-                            label="Password: "
+                            label="Password"
                             placeholder="Enter your password"
                             type="password"
                             {...register("password", {
@@ -75,7 +70,7 @@ function Login() {
                         />
                         <Button
                             type="submit"
-                            className="w-full">Login</Button>
+                            className="w-full bg-orange-600  shadow-2xl text-white hover:bg-red-300 hover:text-black " >Login</Button>
                     </div>
                 </form>
             </div>

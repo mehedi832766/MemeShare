@@ -28,15 +28,10 @@ function Signup() {
     return (
         <div className="flex items-center justify-center">
             <div className={`mx-auto w-full max-w-lg
-        bg-gray-100 rounded-xl p-10 border border-black/
-        10`}>
-                <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
-                    </span>
-                </div>
-                <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
-                <p className="mt-2 text-center text-base text-black/60">
+        bg-gray-100/20 rounded-xl p-10`}>
+               
+                <h2 className="text-center text-2xl font-bold leading-tight text-white">Sign up to create account</h2>
+                <p className="mt-2 text-center text-base text-white">
                     Already have an account?
                     <Link
                         to="/login"
@@ -49,14 +44,15 @@ function Signup() {
                 <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-5'>
                         <Input
-                            label="Full Name: "
+                        className=""
+                            label="Full Name"
                             placeholder="Enter your full name"
                             {...register("name", {
                                 required: true,
                             })}
                         />
                         <Input
-                            label="Email: "
+                            label="Email "
                             placeholder="Enter your email"
                             type="email"
                             {...register("email", {
@@ -68,7 +64,7 @@ function Signup() {
                             })}
                         />
                         <Input
-                            label="Password: "
+                            label="Password "
                             type="password"
                             placeholder="enter your password"
                             {...register("password", {
@@ -78,7 +74,7 @@ function Signup() {
                         />
                         <Button
                             type="submit"
-                            className="w-full bg-gray-800 text-orange-200"
+                            className="w-full bg-orange-600  shadow-2xl text-white hover:bg-red-300 hover:text-black"
                         >Create Account</Button>
                     </div>
                 </form>

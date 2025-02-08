@@ -10,7 +10,7 @@ function Header({userId}) {
 
   const onToggleMenu = () => {
     ico === 'menu-outline' ? setIco("close-outline") : setIco('menu-outline')
-    value === "top-[-100%]" ? setValue("top-[6%]") : setValue("top-[-100%]")
+    value === "top-[-100%]" ? setValue("top-[5.8%]") : setValue("top-[-100%]")
     
 }
 
@@ -56,18 +56,18 @@ function Header({userId}) {
   return (
 <>
 
-    <nav className="flex justify-between items-center bg-yellow-600 w-full  mx-auto">
+    <nav className="flex justify-between items-center bg-yellow-600 w-full border-b-2 mx-auto">
     <div className='mr-4'>
             <Link to='/'>
             <Logo/>
             </Link>
           </div>
     <div
-        className={`nav-links duration-501 md:static absolute md:min-h-fit min-h-[60vh]  md:w-auto  w-full flex items-center px-5 bg-yellow-600 ${value}`}>
+        className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  bg-yellow-600 ${value}`}>
         
-        <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 '>
+        <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item)=>
-            item.active ? (<li key={item.name}>
+            item.active ? (<li key={item.name} className='text-center text-2xl shadow-2xl'>
               <button
               onClick={()=>{
                 setValue("top-[-100%]")
@@ -79,13 +79,13 @@ function Header({userId}) {
               >{item.name}</button>
             </li>): null) }
             {authStatus && (
-              <li>
+              <li  className='flex justify-center'>
                 <LogoutBtn/>
               </li>
             )}
           </ul>
     </div>
-    <div className="flex items-center gap-6 md:hidden">
+    <div className="flex items-center gap-6 md:hidden ">
         <ion-icon onClick={onToggleMenu} name={ico} className="text-3xl cursor-pointer "></ion-icon>
     </div>
     </nav>
