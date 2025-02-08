@@ -7,11 +7,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 function MyPosts() {
   const dispatch = useDispatch()
-
+  const [loading, setLoading] = useState(true);
   const {userId} = useParams();
     // const postCount = useSelector((state)=>state.post.postData).length
     
     const [posts, setPosts] = useState([])
+    // let posts
     useEffect(()=>{
         // console.log("useEffect");
         appwriteService.getPosts().then((posts)=>{
@@ -23,25 +24,27 @@ function MyPosts() {
     
     
         })
-    
+        .finally(() => setLoading(false));
+
+        // posts = useSelector((state)=>state.post.postData)
         
         
     },[])
     // setPosts(useSelector((state)=>state.post.postData))
     // useEffect(() => {}, [])
-    // const posts = useSelector((state)=>state.post.postData)
-    console.log(posts);
+    // 
+    // console.log(posts);
     // setPosts(useSelector((state)=>state.post.postData))
    
                
     
 
     // (posts.filter((post)=> post.userId === userData.$id)).map
-    
-    if (posts.length === 0) {
-        console.log(posts.length);
+    return loading ? 
+    (
         
-        return (
+        
+         
             <div className='w-full py-8 mt-4 text-center'>
                 <Container>
                     <div className='flex flex-wrap'>
@@ -54,9 +57,9 @@ function MyPosts() {
                 </Container>
             </div>
         )
-    }
-    else {
-       return ( <div className='w-full py-8'>
+    :
+
+        ( <div className='w-full py-8'>
             <Container>
                 <div className='flex flex-wrap'>
                     {(posts).map((post)=> (
@@ -74,6 +77,6 @@ function MyPosts() {
             </Container>
         </div>)
     }
-}
+
 
 export default MyPosts

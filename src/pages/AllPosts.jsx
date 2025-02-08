@@ -13,7 +13,7 @@ function AllPosts() {
     // const [posts, setPosts] = useState([])
     // const [userId, setUserId] = useState()
 
-    useEffect(() => {}, [])
+    // useEffect(() => {}, [])
 
 
     // appwriteService.getMyPosts([]).then((posts)=> {

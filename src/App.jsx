@@ -11,25 +11,25 @@ function App() {
   const dispatch = useDispatch();
   const [data, setData] = useState({})
 
-  // useEffect(() => {
-   
-  // }, []);
-  authService.getCurrentUser()
-  .then((userData) => {
-    if (userData) {
-      setData(userData)
-      dispatch(login({ userData }));
-    } else {
-      dispatch(logout());
-    }
-  })
-  .finally(() => setLoading(false));
+  useEffect(() => {
+    authService.getCurrentUser()
+    .then((userData) => {
+      if (userData) {
+        setData(userData)
+        dispatch(login({ userData }));
+      } else {
+        dispatch(logout());
+      }
+    })
+    .finally(() => setLoading(false));
+  }, []);
+  
 
 
   return !loading ? (
 
     <div className='w-full flex flex-col justify-between h-screen'>
-      <div className='sticky top-0 z-10 bg-yellow-600 '>
+      <div className='z-10'>
         <Header userId={data.$id}/>
       </div >
 
