@@ -5,7 +5,7 @@ import {Controller } from 'react-hook-form';
 
 export default function RTE({name, control, label, defaultValue =""}) {
   return (
-    <div className='w-full'> 
+    <div className=''> 
     {label && <label className='inline-block mb-1 pl-1'>{label}</label>}
 
     <Controller
@@ -17,7 +17,7 @@ export default function RTE({name, control, label, defaultValue =""}) {
         initialValue={defaultValue}
         init={{
             value: defaultValue,
-            height: 500,
+            height: 500, 
             menubar: true,
             plugins: [
                 "image",

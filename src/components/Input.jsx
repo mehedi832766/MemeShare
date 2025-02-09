@@ -16,7 +16,7 @@ import React, {useId} from 'react'
         className='inline-block mb-1 pl-1 mr-1 '
         htmlFor={id}>{label}
         </label>}
-        <input type={type} className={`rounded p-1 bg-white ${className}`}
+        <input type={type} className={`rounded p-1 w-full bg-white ${className}`}
         ref={ref}
         {...props}
         id={id}/>  

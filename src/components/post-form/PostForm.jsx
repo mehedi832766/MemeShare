@@ -71,16 +71,16 @@ export default function PostForm({ post }) {
     }, [watch, slugTransform, setValue]);
 
     return (
-        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-            <div className="w-2/3 px-2">
+        <form onSubmit={handleSubmit(submit)} className="flex md:flex-row flex-col ">
+            <div className="md:mr-2 mr-0 mb-2 md:mb-0">
                 <Input
-                    label="Title :"
+                    
                     placeholder="Title"
                     className="mb-4"
                     {...register("title", { required: true })}
                 />
                 <Input
-                    label="Slug :"
+                    
                     placeholder="Slug"
                     className="mb-4"
                     {...register("slug", { required: true })}
@@ -88,18 +88,19 @@ export default function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <RTE name="content" control={control} defaultValue={getValues("content")} />
             </div>
-            <div className="w-1/3 px-2">
+            <div className="">
                 <Input
-                    label="Featured Image :"
+                    placeholder="Upload an image"
                     type="file"
                     className="mb-4"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: false })}
+                    
                 />
                 {post && (
-                    <div className="w-full mb-4">
+                    <div className="">
                         <img
                             src={appwriteService.getFilePreview(post.featuredImage)}
                             alt={post.title}

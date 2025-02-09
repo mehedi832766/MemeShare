@@ -9,7 +9,7 @@ function MyPosts() {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(true);
   const {userId} = useParams();
-    // const postCount = useSelector((state)=>state.post.postData).length
+    // const postCount = useSelector((state)=>state.post.postData)
     
     const [posts, setPosts] = useState([])
     // let posts
