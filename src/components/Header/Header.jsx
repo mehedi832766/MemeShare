@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Logo, LogoutBtn } from '../index';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, NavLink } from 'react-router-dom';
+import { use } from 'react';
 
 function Header({ userId }) {
   const [ico, setIco] = useState("menu-outline");
   const [value, setValue] = useState("top-[-100%]");
+  const [pName, setPName] = useState();
 
   const onToggleMenu = () => {
     ico === 'menu-outline' ? setIco("close-outline") : setIco('menu-outline');
@@ -15,7 +17,7 @@ function Header({ userId }) {
   };
 
   const { pathname } = useLocation();
-  // console.log(pathname);
+  console.log(pathname);
 
   const authStatus = useSelector((state) => state.auth.status);
   // const userId = useSelector((state) => state.auth.userId);
@@ -54,7 +56,13 @@ function Header({ userId }) {
     },
   ];
 
-const pName = (navItems).filter((item) => item.slug === pathname? item.name : null);
+useEffect(() => { 
+  navItems.map((item) => {
+    if (item.slug === pathname) {
+       setPName(item.name);
+    }
+  });
+}, [pathname]);
 console.log(pName);
 
 
@@ -67,24 +75,31 @@ console.log(pName);
             <Logo />
           </Link>
         </div>
-        <div ></div>
+        <div className={`${ico==="menu-outline" ? "" : "hidden"}`}>{pName}</div>
         <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  bg-yellow-600 ${value}`}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item) =>
               item.active ? (<li key={item.name} className='text-center text-2xl shadow-2xl'>
-
-                <button
+               
+                <NavLink
+                  to={item.slug}
                   onClick={() => {
                     setValue("top-[-100%]");
                     setIco('menu-outline');
-                    navigate(item.slug);
+                    
 
                   }}
-                  className={'inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full '}
-                >{item.name}</button>
+                  className={({isActive}) =>
+                    `inline-bock px-6 py-2 duration-200 ${isActive ? "text-white" : "text-black"} hover:bg-yellow-800 rounded-full `}
+                >{item.name}</NavLink>
               </li>) : null)}
             {authStatus && (
-              <li className='flex justify-center'>
+              <li 
+              onClick={() => {
+                setValue("top-[-100%]");
+                setIco('menu-outline');
+                }}
+              className='flex justify-center'>
                 <LogoutBtn />
               </li>
             )}

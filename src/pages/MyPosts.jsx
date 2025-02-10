@@ -8,38 +8,24 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 function MyPosts() {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(true);
-  const {userId} = useParams();
-    // const postCount = useSelector((state)=>state.post.postData)
+   const userData = useSelector((state) => state.auth.userData);
+  const userId = userData.$id;
+  console.log(userId);
+  
+//   const {userId} = useParams();
     
     const [posts, setPosts] = useState([])
-    // let posts
+    
     useEffect(()=>{
-        // console.log("useEffect");
+        
         appwriteService.getPosts().then((posts)=>{
             if(posts) {
-                // console.log(posts)
-                    // console.log("promise");
                     setPosts(posts.documents)                    
             }
-    
-    
         })
-        .finally(() => setLoading(false));
-
-        // posts = useSelector((state)=>state.post.postData)
-        
-        
+        .finally(() => setLoading(false)); 
     },[])
-    // setPosts(useSelector((state)=>state.post.postData))
-    // useEffect(() => {}, [])
-    // 
-    // console.log(posts);
-    // setPosts(useSelector((state)=>state.post.postData))
-   
-               
     
-
-    // (posts.filter((post)=> post.userId === userData.$id)).map
     return loading ? 
     (
         

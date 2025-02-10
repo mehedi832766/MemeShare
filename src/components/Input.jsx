@@ -11,7 +11,7 @@ import React, {useId} from 'react'
   },ref){
     const id = useId()
     return (
-      <div className='w-full flex justify-between '>
+      <div className='w-full'>
         {label && <label 
         className='inline-block mb-1 pl-1 mr-1 '
         htmlFor={id}>{label}

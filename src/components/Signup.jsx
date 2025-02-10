@@ -44,7 +44,7 @@ function Signup() {
                 <form onSubmit={handleSubmit(create)}>
                     <div className='space-y-5'>
                         <Input
-                        className=""
+                        className="space-between"
                             label="Full Name"
                             placeholder="Enter your full name"
                             {...register("name", {

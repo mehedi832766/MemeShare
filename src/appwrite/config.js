@@ -85,9 +85,7 @@ export class Service{
         }
     }
 
-    async getPosts(queries=[
-        Query.equal("status", "active")
-    ]){
+    async getPosts(queries=[]){
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
@@ -100,28 +98,7 @@ export class Service{
         }
     }
 
-    async getMyPosts(){
-        const userId = useSelector((state)=>state.auth.userData.$id)
-        try {
-            return await this.databases.listDocuments(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
-                [Query.equal("userId", userId),
-
-                ]
-                )
-        } catch (error) {
-            console.log("Appwrite serive :: getMyPosts :: error", error);
-            return false
-        }
-    }
-
-
-  
-
-
-    
-     
+      
 
     // file upload service
 

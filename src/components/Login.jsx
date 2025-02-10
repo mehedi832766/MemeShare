@@ -59,6 +59,7 @@ function Login() {
                                         "Email address must be a valid address",
                                 }
                             })}
+                            className="w-0.5"
                         />
                         <Input
                             label="Password"

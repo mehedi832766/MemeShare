@@ -3,6 +3,7 @@ import appwriteService from "../appwrite/config"
 import { Container, PostCard } from '../components'
 import { allposts } from '../store/postSlice'
 import { useSelector, useDispatch } from 'react-redux'
+import {Query } from "appwrite";
 
 
 
@@ -15,11 +16,15 @@ function Home() {
     
     const [posts, setPosts] = useState([])
     useEffect(()=>{
-        
-        appwriteService.getPosts().then((posts)=>{
+        // queries=
+        appwriteService.getPosts([
+            Query.equal("status", "active"),
+            Query.orderDesc("$createdAt")
+        ]
+    ).then((posts)=>{
             if(posts) {
                 
-                    dispatch(allposts(posts))
+                dispatch(allposts(posts))
                     
                     setPosts(posts.documents)                    
             }
@@ -27,9 +32,7 @@ function Home() {
     },[])
    
                
-    // const posts = useSelector((state)=>state.post.postData.documents)
 
-    // (posts.filter((post)=> post.userId === userData.$id)).map
     
     if (posts.length === 0) {
         return (

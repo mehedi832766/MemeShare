@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     
-    postData: null
+    postData: []
 };
 
 
@@ -14,7 +14,7 @@ export const postSlice = createSlice({
     reducers: {
         allposts: (state, action) => {
             
-            state.postData = (action.payload);
+            state.postData = (action.payload.documents);
             console.log(state.postData);
             
         },
