@@ -75,7 +75,7 @@ console.log(pName);
             <Logo />
           </Link>
         </div>
-        <div className={`${ico==="menu-outline" ? "" : "hidden"}`}>{pName}</div>
+        <div className={`${ico==="menu-outline" ? "" : "hidden"} md:hidden visible`}>{pName}</div>
         <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  bg-yellow-600 ${value}`}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item) =>
