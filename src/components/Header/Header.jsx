@@ -69,17 +69,17 @@ console.log(pName);
   return (
     <>
 
-      <nav className="flex justify-between items-center bg-yellow-600 w-full border-b-2 mx-auto">
+      <nav className="flex justify-between items-center bg-gray-600 w-full  mx-auto">
         <div className='mr-4'>
           <Link to='/'>
             <Logo />
           </Link>
         </div>
-        <div className={`${ico==="menu-outline" ? "" : "hidden"} md:hidden visible`}>{pName}</div>
-        <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  bg-yellow-600 ${value}`}>
+        <div className={`${ico==="menu-outline" ? "" : "hidden"} md:hidden visible text-yellow-400`}>{pName}</div>
+        <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  ${value}`}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item) =>
-              item.active ? (<li key={item.name} className='text-center text-2xl shadow-2xl'>
+              item.active ? (<li key={item.name} className='text-center text-2xl shadow-2xl md:bg-gray-600 md:border-b-0 bg-white/80 border-b-2 py-0.5'>
                
                 <NavLink
                   to={item.slug}
@@ -90,7 +90,7 @@ console.log(pName);
 
                   }}
                   className={({isActive}) =>
-                    `inline-bock px-6 py-2 duration-200 ${isActive ? "text-white" : "text-black"} hover:bg-yellow-800 rounded-full `}
+                    `inline-bock px-6 py-2 duration-200 ${isActive ? "text-yellow-500" : "text-black"} border-b-2 border-gray-600 hover:border-b-yellow-500 hover:text-white  `}
                 >{item.name}</NavLink>
               </li>) : null)}
             {authStatus && (
@@ -99,7 +99,7 @@ console.log(pName);
                 setValue("top-[-100%]");
                 setIco('menu-outline');
                 }}
-              className='flex justify-center'>
+              className='flex justify-center md:bg-gray-600 md:border-b-0 bg-white/80 border-b-2 py-0.5'>
                 <LogoutBtn />
               </li>
             )}

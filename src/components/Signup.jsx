@@ -74,7 +74,7 @@ function Signup() {
                         />
                         <Button
                             type="submit"
-                            className="w-full bg-orange-600  shadow-2xl text-white hover:bg-red-300 hover:text-black"
+                            className="w-full bg-yellow-500  shadow-2xl text-white hover:bg-red-300 hover:text-black"
                         >Create Account</Button>
                     </div>
                 </form>

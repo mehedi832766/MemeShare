@@ -36,15 +36,10 @@ function Home() {
     
     if (posts.length === 0) {
         return (
-            <div className='w-full py-8 mt-4 text-center'>
+            <div className='w-screen h-screen py-8  text-center bg-[url(../../public/Meme.png)] bg-center bg-cover'>
                 <Container>
-                    <div className='flex flex-wrap'>
-                        <div className='p-2 w-full'>
-                            <h1 className='text-2xl font-bold hover:text-gray-500'>
-                                Login to read posts
-                            </h1>
-                        </div>
-                    </div>
+                    
+                      
                 </Container>
             </div>
         )

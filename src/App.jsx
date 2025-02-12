@@ -33,14 +33,16 @@ function App() {
 
     <div className='w-full flex flex-col justify-between h-screen'>
       <div className='z-10'>
-        <Header userId={data.$id}/>
+        <Header  userId={data.$id}/>
       </div >
 
      
-        <div className='flex items-center justify-center bg-yellow-500/80  grow'> 
+        <div className=' flex items-center justify-center bg-gray-800 backdrop-blur-sm grow'> 
+        
           <main >
             {<Outlet/>}
           </main>
+          
         </div>
         <div className=''> 
           <Footer />

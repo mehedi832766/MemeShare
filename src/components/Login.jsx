@@ -21,10 +21,12 @@ function Login() {
             const session = await authService.login(data);
             if (session) {
                 const userData = await authService.getCurrentUser();
-                if (userData) dispatch(authLogin(userData));
+                if (userData) {
+                    dispatch(authLogin(userData))
                 
             
                 navigate("/");
+            };
             }
         } catch (error) {
             setError(error.message);
@@ -71,7 +73,7 @@ function Login() {
                         />
                         <Button
                             type="submit"
-                            className="w-full bg-orange-600  shadow-2xl text-white hover:bg-red-300 hover:text-black " >Login</Button>
+                            className="w-full bg-yellow-500  shadow-2xl text-white hover:bg-red-300 hover:text-black " >Login</Button>
                     </div>
                 </form>
             </div>

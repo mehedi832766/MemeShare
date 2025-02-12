@@ -7,26 +7,18 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 function MyPosts() {
   const dispatch = useDispatch()
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
    const userData = useSelector((state) => state.auth.userData);
   const userId = userData.$id;
-  console.log(userId);
+  const posts = useSelector((state)=>state.post.postData)
   
-//   const {userId} = useParams();
+  const MyPosts = posts.filter((post)=> post.userId === userId)
+
+  console.log(MyPosts.length);
+  
+  
     
-    const [posts, setPosts] = useState([])
-    
-    useEffect(()=>{
-        
-        appwriteService.getPosts().then((posts)=>{
-            if(posts) {
-                    setPosts(posts.documents)                    
-            }
-        })
-        .finally(() => setLoading(false)); 
-    },[])
-    
-    return loading ? 
+    return MyPosts.length === 0 ? 
     (
         
         
@@ -48,14 +40,14 @@ function MyPosts() {
         ( <div className='w-full py-8'>
             <Container>
                 <div className='flex flex-wrap'>
-                    {(posts).map((post)=> (
-                   (post.userId === userId)?
+                    {(MyPosts).map((post)=> (
+                   
                         <div key={post.$id} className='p-2 w-full sm:w-1/4'>
                             
                             <PostCard {...post}/>
                    
                         </div>
-                   : null
+                   
                         ))
                         
                         }
