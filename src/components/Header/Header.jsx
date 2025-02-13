@@ -20,7 +20,7 @@ function Header({ userId }) {
   console.log(pathname);
 
   const authStatus = useSelector((state) => state.auth.status);
-  // const userId = useSelector((state) => state.auth.userId);
+  const userData = useSelector((state) => state.auth.userData);
   const navigate = useNavigate();
 
   const navItems = [
@@ -51,7 +51,7 @@ function Header({ userId }) {
     },
     {
       name: "My Posts",
-      slug: `/my-posts/${userId}`,
+      slug: `/my-posts/${authStatus?userData.$id:null}`,
       active: authStatus,
     },
   ];

@@ -9,13 +9,13 @@ import { Outlet } from 'react-router-dom';
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  const [data, setData] = useState({})
+  
 
   useEffect(() => {
     authService.getCurrentUser()
     .then((userData) => {
       if (userData) {
-        setData(userData)
+        
         dispatch(login({ userData }));
       } else {
         dispatch(logout());
@@ -33,7 +33,7 @@ function App() {
 
     <div className='realtive w-full flex flex-col justify-between h-screen'>
       <div className=' z-10'>
-        <Header  userId={data.$id}/>
+        <Header/>
       </div >
 
      

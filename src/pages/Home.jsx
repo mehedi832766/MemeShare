@@ -16,7 +16,7 @@ function Home() {
     
     const [posts, setPosts] = useState([])
     useEffect(()=>{
-        // queries=
+        
         appwriteService.getPosts([
             Query.equal("status", "active"),
             Query.orderDesc("$createdAt")
