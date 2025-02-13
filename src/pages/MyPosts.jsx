@@ -27,7 +27,7 @@ function MyPosts() {
                 <Container>
                     <div className='flex flex-wrap'>
                         <div className='p-2 w-full'>
-                            <h1 className='text-2xl font-bold hover:text-gray-500'>
+                            <h1 className='text-2xl text-yellow-500 font-bold hover:text-white'>
                                 You have not posted anything yet
                             </h1>
                         </div>

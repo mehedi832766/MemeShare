@@ -79,7 +79,7 @@ console.log(pName);
         <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  ${value}`}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item) =>
-              item.active ? (<li key={item.name} className='text-center text-2xl shadow-2xl md:bg-gray-600 md:border-b-0 bg-white/80 border-b-2 py-0.5'>
+              item.active ? (<li key={item.name} className=' text-center text-2xl shadow-2xl font-bold md:bg-gray-600 md:border-b-0 bg-yellow-500/30  py-0.5'>
                
                 <NavLink
                   to={item.slug}
@@ -90,7 +90,7 @@ console.log(pName);
 
                   }}
                   className={({isActive}) =>
-                    `inline-bock px-6 py-2 duration-200 ${isActive ? "text-yellow-500" : "text-black"} border-b-2 border-gray-600 hover:border-b-yellow-500 hover:text-white  `}
+                    `inline-bock px-6 py-.5 duration-200 ${isActive ? "text-yellow-500" : "text-black"} md:border-b-2 border-b-2  border-b-amber-800 text-white md:border-gray-600 hover:border-b-yellow-500 hover:text-white  `}
                 >{item.name}</NavLink>
               </li>) : null)}
             {authStatus && (
@@ -99,7 +99,7 @@ console.log(pName);
                 setValue("top-[-100%]");
                 setIco('menu-outline');
                 }}
-              className='flex justify-center md:bg-gray-600 md:border-b-0 bg-white/80 border-b-2 py-0.5'>
+              className='flex justify-center md:bg-gray-600 md:border-b-0 bg-yellow-500/30  py-0.5'>
                 <LogoutBtn />
               </li>
             )}

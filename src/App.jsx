@@ -31,8 +31,8 @@ function App() {
 
   return !loading ? (
 
-    <div className='w-full flex flex-col justify-between h-screen'>
-      <div className='z-10'>
+    <div className='realtive w-full flex flex-col justify-between h-screen'>
+      <div className=' z-10'>
         <Header  userId={data.$id}/>
       </div >
 
