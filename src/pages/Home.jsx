@@ -36,7 +36,7 @@ function Home() {
     
     if (posts.length === 0) {
         return (
-            <div className='w-screen h-screen py-8  text-center bg-[url(../../public/Meme.png)] bg-center bg-cover'>
+            <div className='w-screen h-screen py-8  text-center bg-[url(/Meme.png)] bg-center bg-cover'>
                 <Container>
                     
                       
