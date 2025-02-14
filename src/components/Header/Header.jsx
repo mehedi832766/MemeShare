@@ -7,12 +7,12 @@ import { use } from 'react';
 
 function Header({ userId }) {
   const [ico, setIco] = useState("menu-outline");
-  const [value, setValue] = useState("top-[-100%]");
+  const [value, setValue] = useState("top-[-408%]");
   const [pName, setPName] = useState();
 
   const onToggleMenu = () => {
     ico === 'menu-outline' ? setIco("close-outline") : setIco('menu-outline');
-    value === "top-[-100%]" ? setValue("top-[5.8%]") : setValue("top-[-100%]");
+    value === "top-[-408%]" ? setValue("top-[100.8%]") : setValue("top-[-408%]");
 
   };
 
@@ -79,27 +79,27 @@ console.log(pName);
         <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  ${value}`}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item) =>
-              item.active ? (<li key={item.name} className=' text-center text-2xl shadow-2xl font-bold md:bg-gray-600 md:border-b-0 bg-yellow-500/30  py-0.5'>
+              item.active ? (<li key={item.name} className=' text-center text-2xl shadow-2xl font-bold md:bg-gray-600 md:border-b-0 bg-gray-500/60 backdrop-blur-sm '>
                
                 <NavLink
                   to={item.slug}
                   onClick={() => {
-                    setValue("top-[-100%]");
+                    setValue("top-[-408%]");
                     setIco('menu-outline');
                     
 
                   }}
                   className={({isActive}) =>
-                    `inline-bock px-6 py-.5 duration-200 ${isActive ? "text-yellow-500" : "text-black"} md:border-b-2 border-b-2  border-b-amber-800 text-white md:border-gray-600 hover:border-b-yellow-500 hover:text-white  `}
+                    `inline-bock px-6 pt-0.5 pb-0 duration-200 ${isActive ? "text-yellow-500" : "text-black"} md:border-b-2 border-b-2  text-white md:border-gray-600 hover:border-b-yellow-500 hover:text-white  `}
                 >{item.name}</NavLink>
               </li>) : null)}
             {authStatus && (
               <li 
               onClick={() => {
-                setValue("top-[-100%]");
+                setValue("top-[-408%]");
                 setIco('menu-outline');
                 }}
-              className='flex justify-center md:bg-gray-600 md:border-b-0 bg-yellow-500/30  py-0.5'>
+              className='flex justify-center md:bg-gray-600 md:border-b-0 bg-gray-500/60 backdrop-blur-sm '>
                 <LogoutBtn />
               </li>
             )}
