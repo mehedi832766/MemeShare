@@ -36,7 +36,7 @@ function App() {
 
 
       <div className='flex flex-col justify-between h-screen'>
-        <div className='sticky top-0 z-50'>
+        <div className='sticky top-0 z-10'>
           <Header />
         </div >
         <main className=' flex items-center justify-center bg-gray-800 backdrop-blur-sm grow'>

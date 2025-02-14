@@ -69,17 +69,21 @@ console.log(pName);
   return (
     <>
 
-      <nav className="flex justify-between items-center bg-gray-600 w-full  mx-auto">
+      <nav className="flex justify-between items-center md:bg-gray-600/80 bg-gray-600 w-full  mx-auto">
+      {/* logo */}
         <div className='mr-4'>
           <Link to='/'>
             <Logo />
           </Link>
         </div>
+        {/* current Page Name */}
         <div className={`${ico==="menu-outline" ? "" : "hidden"} md:hidden visible text-yellow-400`}>{pName}</div>
+        {/* navBar item list rendering */}
         <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  ${value}`}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item) =>
-              item.active ? (<li key={item.name} className=' text-center text-2xl shadow-2xl font-bold md:bg-gray-600 md:border-b-0 bg-gray-500/60 backdrop-blur-sm '>
+              item.active ? (<li key={item.name} className=' text-center text-2xl md:bg-transparent  btn
+              shadow-2xl font-bold md:border-b-0  '>
                
                 <NavLink
                   to={item.slug}
@@ -90,7 +94,10 @@ console.log(pName);
 
                   }}
                   className={({isActive}) =>
-                    `inline-bock px-6 pt-0.5 pb-0 duration-200 ${isActive ? "text-yellow-500" : "text-black"} md:border-b-2 border-b-2  text-white md:border-gray-600 hover:border-b-yellow-500 hover:text-white  `}
+                    `inline-bock px-6 pt-0.5 pb-0  
+                  ${isActive ? "text-yellow-500" : "text-black"} 
+                  md:border-0 border-b-2  text-white  hover:border-b-yellow-500 
+                  hover:md:border-b-2 hover:text-white  `}
                 >{item.name}</NavLink>
               </li>) : null)}
             {authStatus && (
@@ -99,14 +106,14 @@ console.log(pName);
                 setValue("top-[-408%]");
                 setIco('menu-outline');
                 }}
-              className='flex justify-center md:bg-gray-600 md:border-b-0 bg-gray-500/60 backdrop-blur-sm '>
+              className='flex justify-center md:border-b-0 md:bg-transparent bg-gray-900'>
                 <LogoutBtn />
               </li>
             )}
           </ul>
         </div>
         <div className="flex items-center gap-6 md:hidden ">
-          <ion-icon onClick={onToggleMenu} name={ico} className="text-3xl cursor-pointer "></ion-icon>
+          <ion-icon onClick={onToggleMenu} name={ico} className="text-3xl cursor-pointer"></ion-icon>
         </div>
       </nav>
 

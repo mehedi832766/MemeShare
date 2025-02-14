@@ -8,7 +8,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 function MyPosts() {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false);
-   const userData = useSelector((state) => state.auth.userData);
+  const userData = useSelector((state) => state.auth.userData);
   const userId = userData.$id;
   const posts = useSelector((state)=>state.post.postData)
   
