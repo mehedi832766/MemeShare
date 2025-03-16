@@ -98,6 +98,19 @@ export class Service{
         }
     }
 
+    async getMyPosts(queries=[]){
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                queries
+                )
+        } catch (error) {
+            console.log("Appwrite serive :: getMyPosts :: error", error);
+            return false
+        }
+    }
+
       
 
     // file upload service

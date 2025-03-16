@@ -21,23 +21,16 @@ function Header({ userId }) {
 
   const authStatus = useSelector((state) => state.auth.status);
   const userData = useSelector((state) => state.auth.userData);
+  const userID = localStorage.getItem("userid")
+  console.log("this is from loacl storage",userID);
+  
   const navigate = useNavigate();
 
   const navItems = [
     {
       name: 'Home',
       slug: '/',
-      active: true
-    },
-    {
-      name: "Login",
-      slug: "/login",
-      active: !authStatus,
-    },
-    {
-      name: "Signup",
-      slug: "/signup",
-      active: !authStatus,
+      active: authStatus
     },
     {
       name: "All Posts",
@@ -51,7 +44,7 @@ function Header({ userId }) {
     },
     {
       name: "My Posts",
-      slug: `/my-posts/${authStatus?userData.$id:null}`,
+      slug: `/my-posts/${authStatus?userID:null}`,
       active: authStatus,
     },
   ];
@@ -82,7 +75,7 @@ console.log(pName);
         <div className={`nav-links duration-501 md:static absolute md:min-h-fit md:w-auto  w-full flex items-center  ${value}`}>
           <ul className='flex md:flex-row flex-col md:items-center md:gap-[4vw] w-full px-0 mx-0'>
             {navItems.map((item) =>
-              item.active ? (<li key={item.name} className=' text-center text-2xl md:bg-transparent  btn
+              item.active ? (<li key={item.name} className=' text-center text-2xl md:bg-transparent  bg-gray-900
               shadow-2xl font-bold md:border-b-0  '>
                
                 <NavLink

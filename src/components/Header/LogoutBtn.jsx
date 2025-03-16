@@ -10,6 +10,7 @@ function LogoutBtn() {
   const logoutHandler = () => {
     
     authService.logout().then(()=> {
+      localStorage.clear()
       navigate('/')
       dispatch(logout())
       

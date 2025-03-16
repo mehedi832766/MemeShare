@@ -15,7 +15,9 @@ export const postSlice = createSlice({
         allposts: (state, action) => {
             
             state.postData = (action.payload.documents);
-            console.log(state.postData);
+            
+            localStorage.setItem("postData", JSON.stringify(state.postData))
+            // console.log(state.postData);
             
         },
        

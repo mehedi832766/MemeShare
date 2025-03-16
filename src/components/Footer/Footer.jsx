@@ -10,7 +10,7 @@ function Footer() {
                    
                             <div>
                                 <p className="text-sm text-yellow-300 text-center">
-                                    &copy; Copyright 2025. All Rights Reserved by DevUI.
+                                    &copy; Copyright 2025. All Rights Reserved by SomeDevloper.
                                 </p>
                             </div>
                    

@@ -11,7 +11,10 @@ function Signup() {
     const [error, setError] = useState("");
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
-
+    const [tpass, setTpass] = useState("password")
+        const togglePass = () => {
+            tpass==="password"? setTpass("text"): setTpass("password")
+        }
     const create = async (data) => {
         setError("");
         try {
@@ -32,10 +35,10 @@ function Signup() {
                
                 <h2 className="text-center text-2xl font-bold leading-tight text-white">Sign up to create account</h2>
                 <p className="mt-2 text-center text-base text-white">
-                    Already have an account?
+                    Already have an account? <br />
                     <Link
                         to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                        className="font-medium text-amber-400 transition-all duration-200 hover:underline"
                     >
                         Login
                     </Link>
@@ -65,13 +68,18 @@ function Signup() {
                         />
                         <Input
                             label="Password "
-                            type="password"
+                            type={tpass}
                             placeholder="enter your password"
                             {...register("password", {
                                 required: true,
                             }
                             )}
                         />
+                         <div className='w-full flex flex-row-reverse'>
+                        <input type="checkbox"
+                            onClick={togglePass}></input>
+                        <label className='mr-2 text-white'>view password </label>
+                        </div>
                         <Button
                             type="submit"
                             className="w-full bg-yellow-500  shadow-2xl text-white hover:bg-red-300 hover:text-black"
