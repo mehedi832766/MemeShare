@@ -4,7 +4,7 @@ import { Container, PostCard } from '../components'
 import { allposts } from '../store/postSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import {Query } from "appwrite";
-import { Progress } from "@/components/ui/progress"
+
 
 
 
