@@ -1,6 +1,5 @@
 {
     "rewrites": [
-      {"source": "/:a*", "destination": "/"}
+        {"source": "/(.*)", "destination": "/"}
     ]
-  }
-  
+}
